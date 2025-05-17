@@ -46,7 +46,9 @@ export const generateDeepLink = (originId, date, time, destId) => {
  * @returns {string} Complete URL for the StopFinder API request
  */
 export const getStopFinderURL = (address) => {
-    return `https://www.westfalenfahrplan.de/nwl-efa/XML_STOPFINDER_REQUEST?coordOutputFormat=WGS84%5Bdd.ddddd%5D&language=de&locationInfoActive=1&locationServerActive=1&name_sf=${address}&nwlStopFinderMacro=1&outputFormat=rapidJSON&serverInfo=1&sl3plusStopFinderMacro=1&type_sf=any&version=10.4.18.18`
+    const encodedAddress = encodeURIComponent(address)
+
+    return `https://www.westfalenfahrplan.de/nwl-efa/XML_STOPFINDER_REQUEST?coordOutputFormat=WGS84%5Bdd.ddddd%5D&language=de&locationInfoActive=1&locationServerActive=1&name_sf=${encodedAddress}&nwlStopFinderMacro=1&outputFormat=rapidJSON&serverInfo=1&sl3plusStopFinderMacro=1&type_sf=any&version=10.4.18.18`
 }
 
 /**
